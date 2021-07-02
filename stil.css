@@ -1,0 +1,106 @@
+html{height:100%;}
+* {
+	font-family: Georgia;
+	text-align:;
+	font-size: 18px;
+}
+h1 {
+	text-align: left;
+	font-size: 50px;
+	color: white;
+	margin-top: 50px;
+	
+}
+header.naslov{
+	margin-bottom:20px;
+	margin-top:20px;
+}
+#menii{width: 100%; position: relative;}
+div.logo{height: 300px; width: 300px; position: absolute; left:47%;}
+nav.meni {
+	margin:0 auto;
+	width: 120%;
+	text-align:right;
+	background-color:;
+
+}
+nav.meni ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: right;
+	padding-top:65px;
+}
+nav.meni ul li{
+	float:none;
+	display: inline-block;
+}
+nav.meni ul li:nth-child(1){float: left;}
+nav.meni ul li:nth-child(2){float: left;}
+nav.meni ul li:nth-child(3){float: left;}
+
+nav.meni ul li a{
+	color: white;
+	font-size: 15px;
+	text-transform: uppercase;
+	text-decoration: none;
+	display: block;
+	padding: 10px 20px;
+	
+}
+nav.meni ul li a:hover{
+	color: #009900;
+}
+body{
+	background-color: #192421;
+	width: 80%;
+	min-height: 100%;
+	margin-left: 0px;
+	
+	
+}
+section{
+	width:80%;
+	background-color:#5c736c;
+	float:right;	
+	border-radius: 5px;
+	margin-top: 111px;
+	min-height: 700px;
+}
+footer{
+	text-align: center;
+
+	background-color:#333;
+	height: 80px;
+	width:2000px;	
+	clear: both;
+	padding-top: 25px;
+	color: #fff;
+
+}
+a.logo{
+	float:left;
+}
+#slika_tablica {
+	width:10px;
+	height:10x;
+}
+a.slika_tablica{
+	width:5px;
+	height:5x;
+}
+#meni_prijava{
+	float: right;
+}
+#meni_ziv{
+	float: left;
+}
+
+
+
+
+
+
+
+
+
