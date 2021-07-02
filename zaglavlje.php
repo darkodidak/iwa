@@ -89,3 +89,8 @@
 			?>
 		</nav>
 		<section id="sadrzaj">
+	
+
+<?php
+	include_once("footer.php");
+?>

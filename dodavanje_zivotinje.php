@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include_once("bazaa.php");
+	include_once("header.php");
 ?>
 <?php
 	$veza = spojiSeNaBazu();
@@ -124,3 +125,7 @@
 		</small>
 	</p>
 </footer>
+
+<?php
+	include_once("footer.php");
+?>

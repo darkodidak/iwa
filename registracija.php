@@ -2,6 +2,7 @@
 	
 	session_start();
 	include_once("bazaa.php");
+	include_once("header.php");
 	$veza = spojiSeNaBazu();
 	$id_novi_korisnik="";
 
@@ -116,4 +117,8 @@
 		</small>
 	</p>
 </footer>
+
+<?php
+	include_once("footer.php");
+?>
 	
