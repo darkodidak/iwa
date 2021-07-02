@@ -1,6 +1,7 @@
 <?php
 
 	session_start();
+	include_once("header.php");
 
 ?>
 
@@ -135,13 +136,12 @@
 	</section>
 </body>
 
-<footer>
-	<p>
-		<small>
-			<a href="o_autoru.html" style="color: white;">M. Franjković  2020&copy; </a>
-		</small>
-	</p>
-</footer>
+<?php
+
+	session_start();
+	include_once("footer.php");
+
+?>
 	
 	
 	
