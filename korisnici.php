@@ -1,5 +1,6 @@
 <?php
 	include("bazaa.php");
+	include("header.php");
 	session_start();
 ?>
 <?php 
