@@ -8,6 +8,12 @@ body, html {
 	width: 16.66%;
 }
 
+.navigation-button {
+	background-color: gray;
+	color: white;
+	border-radius: 30px;
+}
+
 .row {
 	grid-row: 1 / span 2;
 }
