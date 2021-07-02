@@ -22,14 +22,11 @@
 				<th class="column1666 navigation-button"><a href="index.php">Početna stranica</a></th>
 				<th class="column1666 navigation-button"><a href="filtriranje.php">Filtriraj</a></th>
 				<th class="column1666 navigation-button"><a href="stat.php">Statistika</a></th>
-				<th>
 					<?php 
 					if(isset($_SESSION["tip"]) && ($_SESSION["tip"]) == 1) { 
 					?>
-				<th>
 				<th class="column1666 navigation-button"><a href="dodavanje_zivotinje.php">Dodaj novu životinju</a></th>
 				<th class="column1666 navigation-button"><a href="moderator_stranica.php">Moderator stranica</a></th>
-				<th class="column1666 navigation-button">
 					<?php } ?>
 					<?php
 					if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
