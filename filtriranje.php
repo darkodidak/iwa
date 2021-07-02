@@ -3,7 +3,9 @@
 	include("bazaa.php");
 	include("header.php");
 ?>
-<h1>filtriranje</h1>
+<?php 
+	if(isset($_SESSION["tip"])) { ?>
+<h1>Filtriranje</h1>
 <?php  
 	$veza = spojiSeNaBazu();
 	$upit = "SELECT * FROM lokacija WHERE lokacija_id";
@@ -32,6 +34,10 @@
 <?php
 	include_once("footer.php");
 ?>
+
+<?php } ?>
+	
+
 
 
 
