@@ -5,7 +5,7 @@
 	include_once("header.php");
 ?>
 <?php 
-	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
+	if(isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1)) { ?>
 <?php
 	$veza = spojiSeNaBazu();
 	$id_nova_zivotinja="";
