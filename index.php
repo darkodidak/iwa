@@ -1,13 +1,3 @@
-<!doctype html>
-
-<head>
-  <meta charset="utf-8">
-  <title>Divlje Životinje</title>
-  <link rel="stylesheet" href="stil.css">
-
-</head>
-
-<body>
 <?php
 	session_start();
 	include("bazaa.php");
@@ -31,5 +21,6 @@
 }
 }	
 ?>
-</body>
-</html>
+<?php
+	include("footer.php");
+?>

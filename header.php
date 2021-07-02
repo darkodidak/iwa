@@ -1,3 +1,10 @@
+<!doctype html>
+<body>
+<head>
+  <meta charset="utf-8">
+  <title>Divlje Životinje</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
 <nav>
 	<div class="row">
 		<?php if(!isset($_SESSION["id"])){ ?>

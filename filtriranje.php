@@ -3,14 +3,7 @@
 	include("bazaa.php");
 	include("header.php");
 ?>
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Divlje životinje</title>
-		<meta charset="UTF-8">
-	<section>
-	</head>
-<body>
+<h1>filtriranje</h1>
 <?php  
 	$veza = spojiSeNaBazu();
 	$upit = "SELECT * FROM lokacija WHERE lokacija_id";
@@ -35,7 +28,6 @@
 	<input class="pok" name="submit" type="submit" value="Filtriraj" href="rezultat.php"><br>
 	</form>
 	</section>
-</body>
 
 
 
