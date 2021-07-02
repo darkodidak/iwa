@@ -4,6 +4,8 @@
 	include_once("header.php");
 
 ?>
+<?php 
+	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 1) { ?>
 
 <!DOCTYPE html>
 <html lang="hr">
@@ -136,13 +138,14 @@
 	</section>
 </body>
 
-<?php
-
-	session_start();
-	include_once("footer.php");
-
-?>
-	
+<footer>
+	<p>
+		<small>
+			<a href="o_autoru.html" style="color: white;">M. Franjković  2020&copy; </a>
+		</small>
+	</p>
+</footer>
+<?php } ?>
 	
 	
 	

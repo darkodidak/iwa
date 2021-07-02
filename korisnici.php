@@ -2,14 +2,10 @@
 	include("bazaa.php");
 	session_start();
 ?>
-<?php
-	if($_SESSION["tip"] == 0){
-		include("header.php");
-	} elseif($_SESSION["tip"] != 0){
-		header("Location: index.php");
-	}
-	echo"Dobrodošli " . $_SESSION["ime"] ;
-?>
+<?php 
+	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
+
+
 <?php
 		$veza = spojiSeNaBazu();
 		$upit = "SELECT *FROM korisnik";
@@ -40,3 +36,9 @@
 <?php
 	include_once("footer.php");
 ?>
+
+<?php } ?>
+	
+
+	
+
