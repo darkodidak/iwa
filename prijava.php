@@ -2,6 +2,7 @@
 session_start();
 if(isset($_GET["odjava"])){
 	session_destroy();
+	header("Location: index.php");
 }
 include("bazaa.php");
 $veza = spojiSeNaBazu();
