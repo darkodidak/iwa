@@ -1,8 +1,11 @@
+
 <?php
 	session_start();
 	include_once("bazaa.php");
 	include_once("header.php");
 ?>
+<?php 
+	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
 <?php
 	$veza = spojiSeNaBazu();
 	$id_nova_zivotinja="";
@@ -129,3 +132,5 @@
 <?php
 	include_once("footer.php");
 ?>
+
+<?php } ?>

@@ -63,6 +63,10 @@
 ?>
 
 
+<?php 
+	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
+
+
 <!DOCTYPE html>
 <html lang="hr">
 	<head>
@@ -142,4 +146,6 @@
 		</small>
 	</p>
 </footer>
+
+<?php } ?>
 	

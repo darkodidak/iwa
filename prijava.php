@@ -53,6 +53,8 @@ $veza = spojiSeNaBazu();
 	</head>
 <body>
 		<section>
+		<li><a href="index.php">Početna stranica</a></li>
+		<li><a href="o_autoru.html">O autoru</a></li>
 		<h2>Prijava korisnika</h2>
 			<h3>Forma za prijavu</h3>
 			<form id="prijava" name="prijava" method="post" action="prijava.php">

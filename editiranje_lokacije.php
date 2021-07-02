@@ -1,11 +1,11 @@
 <?php
 		include("bazaa.php");
-		include("header.php");
+		include("footer.php");
 		session_start();
 ?>
 <?php
 	if($_SESSION["tip"] == 0){
-		include("header.php");
+		include("footer.php");
 	} elseif($_SESSION["tip"] != 0){
 		header("Location: index.php");
 	}

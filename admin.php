@@ -4,6 +4,8 @@
 
 
 ?>
+<?php 
+	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
 
 
 <!DOCTYPE html>
@@ -193,3 +195,5 @@
 
 	} 
 ?>
+
+<?php } ?>

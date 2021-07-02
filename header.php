@@ -9,8 +9,10 @@
 	<div class="row">
 		<?php if(!isset($_SESSION["id"])){ ?>
 					<li><a href="prijava.php">Prijava</a></li>
+					<li><a href="o_autoru.html">O autoru</a></li>
 					<?php } else { ?>
 					<li><a href="prijava.php?odjava=1">Odjava</a></li>
+					<li><a href="o_autoru.html">O autoru</a></li>
 				<?php } ?>
 		<?php if(isset($_SESSION["id"])){ ?>
 	</div>
@@ -34,7 +36,6 @@
 				<th class="column1666 navigation-button"><a href="dodavanje_zivotinje.php">Dodaj novu životinju</a></th>
 				<th class="column1666 navigation-button"><a href="korisnici.php">Korisnici</a></th>
 				<th class="column1666 navigation-button"><a href="registracija.php">Registracija</a></th>
-				<th class="column1666 navigation-button"><a href="o_autoru.html">O autoru</a></th>
 				<?php } ?>
 			</tr>
 		</table>
