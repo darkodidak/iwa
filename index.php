@@ -1,9 +1,18 @@
+<!doctype html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Divlje Životinje</title>
+  <link rel="stylesheet" href="stil.css">
+
+</head>
+
+<body>
 <?php
 	session_start();
 	include("bazaa.php");
 	include("header.php");
 ?>
-<!DOCTYPE html>
 <h1>Divlje životinje</h1>
 <?php
 	$veza = spojiSeNaBazu();
@@ -22,3 +31,5 @@
 }
 }	
 ?>
+</body>
+</html>
