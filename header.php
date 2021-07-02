@@ -34,6 +34,7 @@
 				<th class="column1666 navigation-button"><a href="dodavanje_zivotinje.php">Dodaj novu životinju</a></th>
 				<th class="column1666 navigation-button"><a href="korisnici.php">Korisnici</a></th>
 				<th class="column1666 navigation-button"><a href="registracija.php">Registracija</a></th>
+				<th class="column1666 navigation-button"><a href="o_autoru.html">O autoru</a></th>
 				<?php } ?>
 			</tr>
 		</table>
