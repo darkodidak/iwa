@@ -1,6 +1,6 @@
 <?php
 	include("bazaa.php");
-	include("footer.php");
+	include("header.php");
 	session_start();
 ?>
 <?php

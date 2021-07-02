@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	include("bazaa.php");
-	include("footer.php");
+	include("header.php");
 ?>
 <!DOCTYPE html>
 <html>
