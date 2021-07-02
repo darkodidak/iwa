@@ -3,6 +3,8 @@
 	session_start();
 
 ?>
+<?php 
+	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 1) { ?>
 
 <!DOCTYPE html>
 <html lang="hr">
@@ -142,7 +144,7 @@
 		</small>
 	</p>
 </footer>
-	
+<?php } ?>
 	
 	
 	

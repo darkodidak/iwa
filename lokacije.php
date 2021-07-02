@@ -3,15 +3,8 @@
 	include("header.php");
 	session_start();
 ?>
-<?php
-	if(!isset($_SESSION["id"])){
-		header("Location: prijava.php");
-	}
-	elseif($_SESSION["tip"] != 0){
-		header("Location: index.php");
-	}
-	echo"Dobrodošli " . $_SESSION["ime"] ;
-?>
+<?php 
+	if(isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1)) { ?>
 <?php
 		$veza = spojiSeNaBazu();
 		$upit = "SELECT *FROM lokacija";
@@ -37,3 +30,5 @@
 					?>
 
 			</table> 
+<?php } ?>
+	
