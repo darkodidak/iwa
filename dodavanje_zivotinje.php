@@ -6,7 +6,7 @@ if (isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1))
 	        include("baza_konekcija.php");
 			include("header.php");
 	
-			echo "<h3>Dodavanje Životinje</h3>";
+			echo "<h1>Dodavanje Životinje</h3>";
 
 			$veza = bazaConnect();
 
