@@ -1,8 +1,14 @@
 <?php
 	session_start();
+	if(isset($_SESSION["tip"]) && (($_SESSION["tip"] == 0) || ($_SESSION["tip"] == 1))) { ?>
+
+<?php
 	include("baza_konekcija.php");
 	include("header.php");
 ?>
+
+<h1>Popis Lokacija</h1>
+
 <?php
 		$veza = bazaConnect();
 
@@ -16,8 +22,11 @@
 
 		$rezultat = bazaUpit($veza, $upit);
 
-		echo "<a href=dodavanje_lokacije.php>DODAJ LOKACIJU</a><br><br>";
-		echo "<a href=zivotinje_bez_lokacije.php>ZIVOTINJE BEZ LOKACIJE</a><br><br>";
+		if ($_SESSION["tip"] == 0) {
+			echo "<a href=dodavanje_lokacije.php>DODAJ LOKACIJU</a><br><br>";
+			echo "<a href=zivotinje_bez_lokacije.php>ZIVOTINJE BEZ LOKACIJE</a><br><br>";
+		}
+
 
 		while($lokacija = mysqli_fetch_array($rezultat)) {
 			echo "<table><tr>
@@ -33,3 +42,5 @@
 	include("footer.php");
 	bazaDisconnect($veza);
 ?>
+
+<?php } ?>
