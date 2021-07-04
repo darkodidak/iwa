@@ -1,136 +1,60 @@
-
 <?php
-	session_start();
-	include_once("baza_konekcija.php");
-	include_once("header.php");
-?>
-<?php 
-	if(isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1)) { ?>
-<?php
-	$veza = bazaConnect();
-	$id_nova_zivotinja="";
+session_start();
+if (isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1)) { ?>
+
+	<?php
+	        include("baza_konekcija.php");
+			include("header.php");
 	
-		if(isset($_POST["submit"])){
-			$greska = "";
-			$poruka = "";
-			$naziv = $_POST["naziv"];
-			
-			$opis = $_POST["opis"];
-			$slika = $_POST["slika"];
-			$vrijeme = date("Y-m-d H:i:s");
-			$id = $_SESSION["id"];
-			
-			if(!isset($naziv) || empty($naziv)){
-				$greska .= "Niste unijeli naziv životinje! <br>";
-			}
+			echo "<h3>Dodavanje Životinje</h3>";
 
-			if(!isset($opis) || empty($opis)){
-				$greska .= "Dodajte opis! <br>";
-			}
-			if(!isset($slika) || empty($slika)){
-				$greska .= "Prinesite sliku putem url-a! <br>";
-			}
-			if(!isset($_POST["lokacija"]) || empty($naziv) || empty($opis) || empty($slika)){
-				$greska .= "Odaberi lokaciju! <br>";
-				
-			}
-			if(empty($greska)){
-				$upit="INSERT INTO zivotinja (korisnik_id, datum_vrijeme_dodavanja, naziv, opis, slika)
-				VALUES ({$id}, '{$vrijeme}', '{$naziv}', '{$opis}', '{$slika}')";
-				bazaUpit($veza, $upit);	
-				$id_nova_zivotinja = mysqli_insert_id($veza);
-				$poruka = "Unesena je nova životinja pod ključem: $id_nova_zivotinja";
-				}
-				
- 
-			if (isset($_POST["lokacija"]) AND empty($greska)){
-				foreach($_POST["lokacija"] as $kljuc => $vrijednost){
-					if($_POST["lokacija"][$kljuc]){
-						$lokacija = $_POST["lokacija"][$kljuc];
-					
-						$upit= "INSERT INTO zivotinje_na_lokaciji (zivotinja_id, lokacija_id, admin)
-						VALUES($id_nova_zivotinja, $lokacija, 0)";
-						bazaUpit($veza, $upit);
-						
-					}
-				}
-			}
-		}
-		
-		$upit = "SELECT *FROM zivotinja";
-		$rezultat = bazaUpit($veza, $upit);
-	
-	
-		bazaDisconnect($veza);
+			$veza = bazaConnect();
 
-?>
+			$upit = "SELECT zivotinja_id from zivotinja order by zivotinja_id desc";
+			$rezultat_zivotinje = bazaUpit($veza, $upit);
+			$zadnja_zivotinja = mysqli_fetch_array($rezultat_zivotinje);
+			$novi_id = (int)$zadnja_zivotinja["zivotinja_id"] + 1;
 
+			$upit = "SELECT * from lokacija";
+        	$rezultat_lokacija = bazaUpit($veza, $upit);
 
-<!DOCTYPE html>
-<html lang="hr">
-	<head>
-		<title>Divlje životinje</title>
-		<meta name="author" content="Moreno Franjković">
-		<meta name="datum" content="6.2.2021.">
-		<meta charset="UTF-8">
-		
+			$date = date("y-m-d h:i:s");
+	?>
+	<form action="upit_dodaj_zivotinju.php" method="post">
+        <label for="zivotinja_id">zivotinja_id: </label>
+        <input name="zivotinja_id" style=width:100%; type='text' readonly value="<?php echo (string)$novi_id ?>">
 
-	</head>
-<body>
+        <label for="korisnik_id">korisnik_id:</label>
+        <input name="korisnik_id" style=width:100%; type='text' readonly value="<?php echo $_SESSION["id"] ?>">
+        
+        <label hidden for="datum_vrijeme_dodavanja">datum_vrijeme_dodavanja: </label>
+        <input hidden name="datum_vrijeme_dodavanja" type='text' value="<?php echo $date ?>">
+        
+        <label for="naziv">naziv:</label>
+        <input name="naziv" style=width:100%; type='text' value="">
+        
+        <label for="opis">opis:</label>
+        <input name="opis" style=width:100%; type='text' value="">
+        
+        <label for="slika">slika:</label>
+        <input name="slika" style=width:100%; type='text' value="">
 
-
-	<section>
-			<h2>Forma za dodavanje nove divlje životinje: </h2>
-			<form action="" method="POST">
-			<label for="naziv">Naziv divlje životinje: </label>
-			<input name="naziv" type="text" />
-			<br>
-			<label for="lokacija">Izaberi lokaciju: </label>
-			<br>
-			<input type="checkbox" name="obavezna" value="0"> Costa Rica<br>
-			<input type="checkbox" name="obavezna" value="1"> Amazona<br>
-			<input type="checkbox" name="obavezna" value="2"> Sahara<br>
-			<input type="checkbox" name="obavezna" value="3"> Antartika<br>
-	
-			
-			<label for="opis">Opis: </label>
-			<input name="opis" type="text" />
-			<br>
-			
-			<label for="slika">Slika: </label>
-			<input name="slika" type="text" />
-			<br>
-			
-			<input class="pok" name="submit" type="submit" value="Unesi" />
-			<br>
-		</form>
-		<div>
+		<label for="lokacija_id">lokacija:</label>
+		<select name="lokacija_id" style="width: 100%">
 			<?php 
-			
-			if(isset($greska)){
-				echo "<p style ='color:red'>$greska</p>";
-			} 
-			if(isset($poruka)){
-				echo "<p style ='color:green'>$poruka</p>";
-				echo "<p style ='color:white'>$vrijeme</p>";
-			} 
-			
-		?>
-		</div>
-	</section>
-</body>
+				while($lokacija = mysqli_fetch_array($rezultat_lokacija)) {
+					echo "<option value=".$lokacija['lokacija_id'].">".$lokacija['naziv']."</option>";
+				}
+			?>
+		</select>
+        <a>
+            <input class="pok" name="azuriraj" type="submit" value="Da">
+        </a>
+    </form>
 
-
-<footer>
-	<p>
-		<small>
-			<a href="o_autoru.html" style="color: white;">M. Franjković  2020&copy; </a>
-		</small>
-	</p>
-</footer>
-
-<?php
+	<?php
 	include_once("footer.php");
-?>
+	bazaDisconnect($veza);
+	?>
 
 <?php } ?>
