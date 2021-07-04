@@ -1,11 +1,11 @@
 <!doctype html>
-<body>
+<body style="width: 100%">
 <head>
   <meta charset="utf-8">
   <title>Divlje Životinje</title>
   <link rel="stylesheet" href="stil.css">
 </head>
-<nav>
+<nav style="width: 100%">
 	<div class="row">
 		<?php if(!isset($_SESSION["id"])){ ?>
 					<li><a href="prijava.php">Prijava</a></li>
@@ -17,7 +17,7 @@
 		<?php if(isset($_SESSION["id"])){ ?>
 	</div>
 	<div class="row">
-		<table>
+		<table style="width: 100%">
 			<tr>
 				<th class="column1666 navigation-button"><a href="index.php">Početna stranica</a></th>
 				<th class="column1666 navigation-button"><a href="filtriranje.php">Filtriraj</a></th>

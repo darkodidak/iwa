@@ -9,8 +9,6 @@
 
     $upit = "DELETE from zivotinje_na_lokaciji where lokacija_id=".$id_lokacije." AND zivotinja_id=".$id_zivotinje;
 
-    echo $upit;
-
     $rezultat = izvrsiUpit($veza, $upit);
 
     if ($rezultat == true) {
