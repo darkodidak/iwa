@@ -23,6 +23,7 @@
 				<td>{$lokacija['lokacija_id']}</td>
 				<td>{$lokacija['moderator_id']}</td>
 				<td><a href=\"zivotinje_na_lokaciji.php?id=".$lokacija["lokacija_id"]."\">{$lokacija['naziv']}</a></td>
+				<td><a href=\"uredi_lokaciju.php?lokacija_id=".$lokacija["lokacija_id"]."\">Uredi</a></td>
 				</tr></table>";
 		}
 ?>	

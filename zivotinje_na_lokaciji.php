@@ -23,8 +23,7 @@
                 echo "<td><a style=height:20px; width:20px; background-colro:red; 
                 href=\"obrisi_zivotinju.php?lokacija_id=".$id_lokacije."&zivotinja_id=".$zivotinja["zivotinja_id"]."\">Obrisi</a></td>";
             }
-        echo "<td><a style=height:20px; width:20px; background-colro:red; 
-        href=\"uredi_zivotinju.php?&zivotinja_id=".$zivotinja["zivotinja_id"]."&lokacija_id=".$id_lokacije."\">Uredi</a></td>";
+        echo "<td><a href=\"uredi_zivotinju.php?&zivotinja_id=".$zivotinja["zivotinja_id"]."&lokacija_id=".$id_lokacije."\">Uredi</a></td>";
         echo "</tr></table>";
     }
 ?>
