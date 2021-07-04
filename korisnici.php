@@ -32,13 +32,14 @@
 						}
 					?>
 </table> 
-
-
 <?php
 	include_once("footer.php");
+
 ?>
 
-<?php } ?>
+<?php } 
+zatvoriVezuNaBazu($veza);
+?>
 	
 
 	

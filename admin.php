@@ -194,6 +194,7 @@
 		$rezultat = izvrsiUpit($veza, $upit);
 
 	} 
+	zatvoriVezuNaBazu($veza);
 ?>
 
 <?php } ?>

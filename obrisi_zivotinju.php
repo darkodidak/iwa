@@ -16,5 +16,5 @@
     } else {
         echo "greška kod brisnja";
     }
-
+    zatvoriVezuNaBazu($veza);
 ?>	

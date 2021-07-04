@@ -22,3 +22,4 @@
         }
     }
 ?>
+<?php zatvoriVezuNaBazu($veza); ?>

@@ -37,7 +37,7 @@ $veza = spojiSeNaBazu();
 			}
  	}
 	
-	zatvoriVezuNaBazu($veza);
+
 	
 	
 ?>
@@ -79,4 +79,5 @@ $veza = spojiSeNaBazu();
 				</div>
 		</section>
 </body>
+<?php zatvoriVezuNaBazu($veza); ?>
 

@@ -42,3 +42,4 @@
 <?php
     include("footer.php");
 ?>
+<?php zatvoriVezuNaBazu($veza); ?>

@@ -23,4 +23,5 @@
 ?>
 <?php
 	include("footer.php");
+	zatvoriVezuNaBazu($veza);
 ?>
