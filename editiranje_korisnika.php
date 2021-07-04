@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include_once("bazaa.php");
+	include("bazaa.php");
 	$veza = spojiSeNaBazu();
 	$id_azuriranja_korisnik = $_GET["id"];
 
@@ -43,7 +43,7 @@
 		
 			if(empty($greska)){
 				$poruka = "Kreirali ste račun! <br>";
-				$upit="UPDATE korisnik SET tip_id='{$_POST['tip_id']}', korisnicko_ime='{$korime}', lozinka='{$lozinka}', ime='{$ime}', prezime='{$prezime}', email='{$email}', slika='{$slika}'
+				$upit="UPDATE korisnik SET tip_id='{$_POST["tip_id"]}', korisnicko_ime='{$korime}', lozinka='{$lozinka}', ime='{$ime}', prezime='{$prezime}', email='{$email}', slika='{$slika}'
 				WHERE korisnik_id = '{$id_azuriranja_korisnik}'";
 				izvrsiUpit($veza, $upit);	
 				$poruka = "Podaci su ažurirani pod ključem: $id_azuriranja_korisnik";
@@ -56,36 +56,25 @@
 		$rezultat = izvrsiUpit($veza, $upit);
 		$rezultat_ispis = mysqli_fetch_assoc($rezultat);
 		$upit = "SELECT *FROM tip_korisnika WHERE tip_id";
-		$rezultat_tipovi = izvrsiUpit($veza, $upit);
-		
-		zatvoriVezuNaBazu($veza);
-	
+		$rezultat_tipovi = izvrsiUpit($veza, $upit);	
 ?>
 
 
 <?php 
 	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
-
-
 <!DOCTYPE html>
 <html lang="hr">
 	<head>
 		<title>Divlje životinje</title>
-		<meta name="author" content="Moreno Franjković">
-		<meta name="datum" content="6.2.2021.">
 		<meta charset="UTF-8">
-		<link type="text/css" rel="stylesheet" href="stil.css"/>
 	</head>
-		<nav>
-		<?php include"menii.php";?>
-	</nav>
 <body>
 	<section>
 		<h2>Ažuriranje korisnika</h2>
 			<h3>
 				<?php  
 				
-				echo"Forma za ažuriranje korisnika pod ključem: $id_azuriranja_korisnik";
+				echo"AŽuriraj korisnika: $id_azuriranja_korisnik";
 				
 				?>
 			</h3>
@@ -123,29 +112,8 @@
 				<input class="pok" id="reset" type="reset" name="reset" value="Inicijaliziraj"><br>
 				
 			</form> 
-			<div>
-				<?php 
-				
-					if(isset($greska)){
-						echo "<p style ='color:red'>$greska</p>";
-					} 
-					if(isset($poruka)){
-					echo "<p style ='color:green'>$poruka</p>";
-					} 
-					
-				?>
-			</div>
-			
 	</section>
 </body>
-
-<footer>
-	<p>
-		<small>
-			<a href="o_autoru.html" style="color: white;">M. Franjković  2020&copy; </a>
-		</small>
-	</p>
-</footer>
-
 <?php } ?>
+<?php zatvoriVezuNaBazu($veza);?> 
 	
