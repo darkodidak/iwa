@@ -16,7 +16,6 @@
 
         $date = date("y-m-d h:i:s");
 
-        var_dump($date);
 
         $upit="UPDATE zivotinja SET 
             korisnik_id='{$id_korisnika}', 
