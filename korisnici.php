@@ -1,7 +1,7 @@
 <?php
+	session_start();
 	include("bazaa.php");
 	include("header.php");
-	session_start();
 ?>
 <?php 
 	if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>

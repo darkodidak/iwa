@@ -27,10 +27,12 @@
 					?>
 				<th class="column1666 navigation-button"><a href="dodavanje_zivotinje.php">Dodaj novu životinju</a></th>
 				<th class="column1666 navigation-button"><a href="moderator_stranica.php">Moderator stranica</a></th>
+				<th class="column1666 navigation-button"><a href="lokacije.php">Lokacije</a></th>
 					<?php } ?>
 					<?php
 					if(isset($_SESSION["tip"]) && $_SESSION["tip"] == 0) { ?>
 				<th class="column1666 navigation-button"><a href="dodavanje_zivotinje.php">Dodaj novu životinju</a></th>
+				<th class="column1666 navigation-button"><a href="lokacije.php">Lokacije</a></th>
 				<th class="column1666 navigation-button"><a href="korisnici.php">Korisnici</a></th>
 				<th class="column1666 navigation-button"><a href="registracija.php">Registracija</a></th>
 				<?php } ?>

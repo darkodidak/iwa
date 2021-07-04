@@ -1,6 +1,7 @@
 <?php
-	include("bazaa.php");
 	session_start();
+	include("bazaa.php");
+	include("header.php");
 ?>
 <?php
 $idurl=$_GET["id"];	
@@ -43,4 +44,7 @@ $idurl=$_GET["id"];
 				} 
 			} 
 		}
+?>
+<?php
+	include("footer.php");
 ?>
