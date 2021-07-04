@@ -7,14 +7,14 @@
 <?php
 	$veza = bazaConnect();
 	$upit = "SELECT * FROM `zivotinja` ORDER BY `zivotinja`.`datum_vrijeme_dodavanja` DESC";
-	$slika = bazaUpit($veza, $upit);
+	$zivotinje = bazaUpit($veza, $upit);
 	
-	if(isset($slika)){
+	if(isset($zivotinje)){
 		
 		$i = 0;
 
-		while($zivotinja = mysqli_fetch_array($slika)) {
-			if ($i % 4 == 0) {
+		while($zivotinja = mysqli_fetch_array($zivotinje)) {
+			if ($i % 3 == 0) {
 				echo "<div class=row>";
 			}
 
@@ -22,12 +22,12 @@
 				<a href=info_zivotinja.php?id=".$zivotinja["zivotinja_id"].">
 					<img style=height:250px; src=".$zivotinja["slika"].">
 					<i>".$zivotinja["naziv"]."</i>
-				</a>
+				</a>&nbsp;
 			";
 
 			$i += 1;
 
-			if ($i % 4 == 0 && $i != 0) {
+			if ($i % 3 == 0 && $i != 0) {
 				echo "</div><br><br>";
 			}
 		}
