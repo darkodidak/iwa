@@ -1,13 +1,13 @@
 
 <?php
 	session_start();
-	include_once("bazaa.php");
+	include_once("baza_konekcija.php");
 	include_once("header.php");
 ?>
 <?php 
 	if(isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1)) { ?>
 <?php
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$id_nova_zivotinja="";
 	
 		if(isset($_POST["submit"])){
@@ -37,7 +37,7 @@
 			if(empty($greska)){
 				$upit="INSERT INTO zivotinja (korisnik_id, datum_vrijeme_dodavanja, naziv, opis, slika)
 				VALUES ({$id}, '{$vrijeme}', '{$naziv}', '{$opis}', '{$slika}')";
-				izvrsiUpit($veza, $upit);	
+				bazaUpit($veza, $upit);	
 				$id_nova_zivotinja = mysqli_insert_id($veza);
 				$poruka = "Unesena je nova životinja pod ključem: $id_nova_zivotinja";
 				}
@@ -50,7 +50,7 @@
 					
 						$upit= "INSERT INTO zivotinje_na_lokaciji (zivotinja_id, lokacija_id, admin)
 						VALUES($id_nova_zivotinja, $lokacija, 0)";
-						izvrsiUpit($veza, $upit);
+						bazaUpit($veza, $upit);
 						
 					}
 				}
@@ -58,10 +58,10 @@
 		}
 		
 		$upit = "SELECT *FROM zivotinja";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 	
 	
-		zatvoriVezuNaBazu($veza);
+		bazaDisconnect($veza);
 
 ?>
 

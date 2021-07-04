@@ -1,5 +1,5 @@
 <?php
-		include("bazaa.php");
+		include("baza_konekcija.php");
 		include("footer.php");
 		session_start();
 ?>
@@ -21,9 +21,9 @@
 	<section>
 				<tbody>
 					<?php
-		$veza = spojiSeNaBazu();
+		$veza = bazaConnect();
 		$upit = "SELECT * FROM lokacija";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 ?>
 			<table>
 					<?php 
@@ -36,7 +36,7 @@
 							<?php
 		
 		$upit = "SELECT * FROM lokacija z, korisnik l WHERE z.moderator_id=l.korisnik_id";
-		$rezultat1 = izvrsiUpit($veza, $upit);
+		$rezultat1 = bazaUpit($veza, $upit);
 ?>
 			<table>
 					<?php 
@@ -54,7 +54,7 @@
 $greska = "";
 $id=$_GET["id"];
 $upit ="SELECT * FROM lokacija WHERE lokacija_id='{$id}'";
-$rezultattt = izvrsiUpit($veza, $upit);
+$rezultattt = bazaUpit($veza, $upit);
 $rezultat_ispis = mysqli_fetch_assoc(rezultattt);
 if($moderator_id) {
 $moderator_id = $_POST ['moderator_id'];

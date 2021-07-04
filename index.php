@@ -1,13 +1,13 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <h1>Divlje životinje</h1>
 <?php
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$upit = "SELECT * FROM `zivotinja` ORDER BY `zivotinja`.`datum_vrijeme_dodavanja` DESC";
-	$slika = izvrsiUpit($veza, $upit);
+	$slika = bazaUpit($veza, $upit);
 	
 	if(isset($slika)){
 		
@@ -36,5 +36,5 @@
 ?>
 <?php
 	include("footer.php");
-	zatvoriVezuNaBazu($veza);
+	bazaDisconnect($veza);
 ?>

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <!DOCTYPE html>
@@ -12,7 +12,7 @@
 <body>
 <section>
 <?php  
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 			$razdobljeod = strtotime($_POST['datum']);
 			$pretvarac1 = date('Y.m.d H:i:s', $razdobljeod);
 			$razdobljedo = strtotime($_POST['vrijeme']);
@@ -23,7 +23,7 @@
 		WHERE a.zivotinja_id=b.zivotinja_id 
 		AND b.lokacija_id='{$filtriranje}' 
 		AND  datum_vrijeme_dodavanja BETWEEN '{$pretvarac1}' AND '{$pretvarac2}'";
-		$result = izvrsiUpit($veza, $upit);
+		$result = bazaUpit($veza, $upit);
 			while($display = mysqli_fetch_assoc($result)){
 				$razdobljeod = date('d.m.Y H:i:s', $razdobljeod);
 				echo"<tr><br>";

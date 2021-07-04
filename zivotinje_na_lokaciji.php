@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 
-    $veza = spojiSeNaBazu();
+    $veza = bazaConnect();
 
     $id_lokacije = $_GET["id"];
 
@@ -11,7 +11,7 @@
     left join zivotinja on zivotinje_na_lokaciji.zivotinja_id=zivotinja.zivotinja_id 
     where zivotinje_na_lokaciji.lokacija_id=".$id_lokacije;
 
-    $rezultat = izvrsiUpit($veza, $upit);
+    $rezultat = bazaUpit($veza, $upit);
 
     while($zivotinja = mysqli_fetch_array($rezultat)) {
         echo "<table><tr>
@@ -30,4 +30,4 @@
 <?php
 	include("footer.php");
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>

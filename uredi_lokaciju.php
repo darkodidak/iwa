@@ -1,19 +1,19 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
     include("header.php");
 
-    $veza = spojiSeNaBazu();
+    $veza = bazaConnect();
 
     $id_lokacije = $_GET["lokacija_id"];
 
     $upit = "SELECT * from korisnik where tip_id=1";
 
-    $rezultat_korisnici = izvrsiUpit($veza, $upit);
+    $rezultat_korisnici = bazaUpit($veza, $upit);
 
     $upit = "SELECT * from lokacija where lokacija_id=".$id_lokacije;
 
-    $rezultat_lokacija = izvrsiUpit($veza, $upit);
+    $rezultat_lokacija = bazaUpit($veza, $upit);
 
     $rezultat_lokacija = mysqli_fetch_array($rezultat_lokacija);
 ?>
@@ -42,4 +42,4 @@
 <?php
     include("footer.php");
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>

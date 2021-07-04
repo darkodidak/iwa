@@ -1,10 +1,10 @@
 <?php	
     session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 
     if(isset($_POST["azuriraj"])){
 
-        $veza = spojiSeNaBazu();
+        $veza = bazaConnect();
 
         $id_korisnika = $_SESSION["id"];
 
@@ -26,11 +26,11 @@
             slika='{$slika}' 
         WHERE zivotinja_id = '{$id_zivotinje}'";
 
-        $rezultat = izvrsiUpit($veza, $upit);
+        $rezultat = bazaUpit($veza, $upit);
 
         if ($rezultat == true) {
             header("Location: zivotinje_na_lokaciji.php?id=".$id_lokacije);
         }
     }
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>

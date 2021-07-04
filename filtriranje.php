@@ -1,15 +1,15 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <?php 
 	if(isset($_SESSION["tip"])) { ?>
 <h1>Filtriranje</h1>
 <?php  
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$upit = "SELECT * FROM lokacija WHERE lokacija_id";
-	$rezultat_lokacija = izvrsiUpit($veza, $upit);
+	$rezultat_lokacija = bazaUpit($veza, $upit);
 ?>
 	<form name="forma" method="post" action="rezultat.php">
 		<label for="lokacija"><strong>Filtriraj lokaciju životinje</strong></label><br>
@@ -36,7 +36,7 @@
 ?>
 
 <?php }
-zatvoriVezuNaBazu($veza);
+bazaDisconnect($veza);
 ?>
 	
 

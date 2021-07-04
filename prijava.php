@@ -4,15 +4,15 @@ if(isset($_GET["odjava"])){
 	session_destroy();
 	header("Location: index.php");
 }
-include("bazaa.php");
-$veza = spojiSeNaBazu();
+include("baza_konekcija.php");
+$veza = bazaConnect();
 	if(isset($_POST["submit"])){
 		$korime = $_POST["korime"];
 		if(isset($korime) && !empty($korime) && isset($_POST["lozinka"]) && !empty($_POST["lozinka"])){
 			$upit = "SELECT * FROM korisnik 
 			WHERE korisnicko_ime='{$korime}'
 			AND lozinka = '{$_POST["lozinka"]}'";
-			$rezultat = izvrsiUpit($veza, $upit);
+			$rezultat = bazaUpit($veza, $upit);
 			$prijava = false;
 			while($red = mysqli_fetch_array($rezultat)){
 				$prijava = true;
@@ -79,5 +79,5 @@ $veza = spojiSeNaBazu();
 				</div>
 		</section>
 </body>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>
 

@@ -1,7 +1,7 @@
 <?php
 	session_start();
-	include("bazaa.php");
-	$veza = spojiSeNaBazu();
+	include("baza_konekcija.php");
+	$veza = bazaConnect();
 	$id_azuriranja_korisnik = $_GET["id"];
 
 	
@@ -45,7 +45,7 @@
 				$poruka = "Kreirali ste račun! <br>";
 				$upit="UPDATE korisnik SET tip_id='{$_POST["tip_id"]}', korisnicko_ime='{$korime}', lozinka='{$lozinka}', ime='{$ime}', prezime='{$prezime}', email='{$email}', slika='{$slika}'
 				WHERE korisnik_id = '{$id_azuriranja_korisnik}'";
-				izvrsiUpit($veza, $upit);	
+				bazaUpit($veza, $upit);	
 				$poruka = "Podaci su ažurirani pod ključem: $id_azuriranja_korisnik";
 			}
 		
@@ -53,10 +53,10 @@
 		}
 	
 		$upit = "SELECT *FROM korisnik WHERE korisnik_id = '{$id_azuriranja_korisnik}'";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 		$rezultat_ispis = mysqli_fetch_assoc($rezultat);
 		$upit = "SELECT *FROM tip_korisnika WHERE tip_id";
-		$rezultat_tipovi = izvrsiUpit($veza, $upit);	
+		$rezultat_tipovi = bazaUpit($veza, $upit);	
 ?>
 
 
@@ -115,5 +115,5 @@
 	</section>
 </body>
 <?php } ?>
-<?php zatvoriVezuNaBazu($veza);?> 
+<?php bazaDisconnect($veza);?> 
 	

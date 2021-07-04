@@ -1,5 +1,5 @@
 <?php
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	session_start();
 
 
@@ -33,10 +33,10 @@
 
 <?php
 
-		include_once("bazaa.php");
-		$veza = spojiSeNaBazu();
+		include_once("baza_konekcija.php");
+		$veza = bazaConnect();
 		$upit = "SELECT *FROM korisnik";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 	
 ?>
 					

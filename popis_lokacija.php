@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <!DOCTYPE html>
@@ -11,13 +11,13 @@
 	<section>
 <?php 
 	$url=$_GET["id"];
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$upit = "SELECT * FROM `zivotinje_na_lokaciji` WHERE `lokacija_id`='{$url}'";
-	$result = izvrsiUpit($veza, $upit);
+	$result = bazaUpit($veza, $upit);
 		if(isset($result)){ 
 			while($result1 = mysqli_fetch_array($result)){ 
 				$upit = "SELECT * FROM `zivotinja` WHERE `zivotinja_id`='{$result1["zivotinja_id"]}'";
-				$rezz = izvrsiUpit($veza, $upit);
+				$rezz = bazaUpit($veza, $upit);
 					if(isset($rezz)){ 
 						while($display = mysqli_fetch_array($rezz)){ 
 						?>	
@@ -36,5 +36,5 @@
 </body>
 <?php
 	include("footer.php");
-	zatvoriVezuNaBazu($veza);
+	bazaDisconnect($veza);
 ?>

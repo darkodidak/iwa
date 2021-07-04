@@ -20,10 +20,10 @@
 	<div>
 	<?php
 	
-		include ("bazaa.php");
-		$veza = spojiSeNaBazu();
+		include ("baza_konekcija.php");
+		$veza = bazaConnect();
 		$upit = "SELECT * FROM lokacija WHERE moderator_id='{$_SESSION["id"]}'";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 		
 			if(isset($rezultat)){
 				while ($prikazi=mysqli_fetch_array($rezultat)){
@@ -47,12 +47,12 @@
 			
 			if(isset($_POST["submit"])){
 				$upit = "SELECT * FROM zivotinje_na_lokaciji WHERE lokacija_id='{$_POST["submit"]}'";
-				$rez = izvrsiUpit($veza, $upit);
+				$rez = bazaUpit($veza, $upit);
 				
 					if(isset($rez)){
 						while($prikazii=mysqli_fetch_assoc($rez)){
 							$upit = "SELECT * FROM zivotinja WHERE zivotinja_id='{$prikazii["zivotinja_id"]}'";
-							$rezz = izvrsiUpit($veza, $upit); ?>
+							$rezz = bazaUpit($veza, $upit); ?>
 							<?php	if(isset($rezz)){
 									while($prikaziii=mysqli_fetch_array($rezz)){ ?>
 									
@@ -107,14 +107,14 @@
 			
 			if(isset($_POST["submitt"])){
 				$upit = "SELECT * FROM zivotinje_na_lokaciji WHERE zivotinja_id ='{$_POST["submitt"]}'";
-				$rezultat = izvrsiUpit($veza, $upit);
+				$rezultat = bazaUpit($veza, $upit);
 				
 					if(isset($rezultat)){
 						while($prikazi=mysqli_fetch_assoc($rezultat)){
 							if(($prikazi["admin"]) == 0){
 								
 								$upit = "DELETE FROM zivotinje_na_lokaciji WHERE zivotinja_id ='{$_POST["submitt"]}' AND admin='0'";
-								$rezultat = izvrsiUpit($veza, $upit);
+								$rezultat = bazaUpit($veza, $upit);
 								
 									echo"Životinja je uklonjena!";
 									

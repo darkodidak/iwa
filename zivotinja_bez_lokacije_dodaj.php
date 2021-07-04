@@ -1,13 +1,13 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
     include("header.php");
 
-    $veza = spojiSeNaBazu();
+    $veza = bazaConnect();
 
     $upit = "SELECT * from lokacija";
 
-    $rezultat_lokacija = izvrsiUpit($veza, $upit);
+    $rezultat_lokacija = bazaUpit($veza, $upit);
     
     $id_zivotinja = $_GET["id"];
 ?>

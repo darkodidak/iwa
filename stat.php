@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <!DOCTYPE html>
@@ -11,14 +11,14 @@
 <body>
 <section>
 	<?php  
-		$veza = spojiSeNaBazu();
+		$veza = bazaConnect();
 		$upit = "SELECT l.naziv as lokacija, 
 		COUNT(*) as broj_zivotinja 
 		FROM zivotinje_na_lokaciji z, lokacija l 
 		WHERE z.lokacija_id=l.lokacija_id 
 		GROUP BY l.lokacija_id 
 		ORDER BY l.naziv";
-		$result = izvrsiUpit($veza, $upit);
+		$result = bazaUpit($veza, $upit);
 		if(isset($result)){
 		 while($display=mysqli_fetch_array($result)){
 			echo"<br>";   
@@ -45,4 +45,4 @@
 	?>
 </section>
 </body>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>

@@ -1,9 +1,9 @@
 <?php
 	
 	session_start();
-	include_once("bazaa.php");
+	include_once("baza_konekcija.php");
 	include_once("header.php");
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$id_novi_korisnik="";
 
 
@@ -43,7 +43,7 @@
 					@mail($email, "Aktivacijski link", $poruka);
 					$upit="INSERT INTO korisnik (tip_id, ime, prezime, email, korisnicko_ime, lozinka)
 					VALUES (2, '{$ime}', '{$prezime}', '{$email}', '{$korime}', '{$lozinka}')";
-					izvrsiUpit($veza, $upit);	
+					bazaUpit($veza, $upit);	
 					$id_novi_korisnik = mysqli_insert_id($veza);
 					$poruka = "Unesen je novi korisnik pod ključem: $id_novi_korisnik";
 				}
@@ -120,6 +120,6 @@
 
 <?php
 	include_once("footer.php");
-	zatvoriVezuNaBazu($veza);
+	bazaDisconnect($veza);
 ?>
 	

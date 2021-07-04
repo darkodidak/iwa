@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <?php
-		$veza = spojiSeNaBazu();
+		$veza = bazaConnect();
 
 		$session_user = $_SESSION;
 
@@ -15,7 +15,7 @@
             where zivotinje_na_lokaciji.zivotinja_id IS NULL";
 		}
 
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 
         while($zivotinja_bez_lokacije = mysqli_fetch_array($rezultat)) {
             
@@ -31,5 +31,5 @@
 
 <?php
 	include("footer.php");
-    zatvoriVezuNaBazu($veza);
+    bazaDisconnect($veza);
 ?>

@@ -1,10 +1,10 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <?php
-		$veza = spojiSeNaBazu();
+		$veza = bazaConnect();
 
 		$session_user = $_SESSION;
 
@@ -14,7 +14,7 @@
 			$upit = "SELECT * FROM lokacija where moderator_id=". $session_user["id"];
 		}
 
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 
 		echo "<a href=dodavanje_lokacije.php>DODAJ LOKACIJU</a><br><br>";
 		echo "<a href=zivotinje_bez_lokacije.php>ZIVOTINJE BEZ LOKACIJE</a><br><br>";
@@ -31,5 +31,5 @@
 
 <?php
 	include("footer.php");
-	zatvoriVezuNaBazu($veza);
+	bazaDisconnect($veza);
 ?>

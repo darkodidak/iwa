@@ -1,16 +1,16 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
     include("header.php");
 
-    $veza = spojiSeNaBazu();
+    $veza = bazaConnect();
 
     $id_zivotinje = $_GET["zivotinja_id"];
     $id_lokacije = $_GET["lokacija_id"];
 
     $upit = "SELECT * from zivotinja where zivotinja_id=".$id_zivotinje;
 
-    $rezultat = izvrsiUpit($veza, $upit);
+    $rezultat = bazaUpit($veza, $upit);
 
     $zivotinja = mysqli_fetch_array($rezultat);
 ?>
@@ -39,4 +39,4 @@
 <?php
     include("footer.php");
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>

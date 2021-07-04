@@ -39,10 +39,10 @@
 			<tbody>
 <?php
 
-		include_once("bazaa.php");
-		$veza = spojiSeNaBazu();
+		include_once("baza_konekcija.php");
+		$veza = bazaConnect();
 		$upit = "SELECT *FROM zivotinja WHERE zivotinja_id='$id'";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 		
 		if(isset($rezultat)){
 			while($prikazi=mysqli_fetch_array($rezultat)){
@@ -88,7 +88,7 @@
 				}*/
 				if(empty($greska)){
 					$upit="UPDATE zivotinja SET naziv='{$naziv}', opis='{$opis}', slika='{$slika}' WHERE zivotinja_id='{$id}'";
-					izvrsiUpit($veza, $upit);	
+					bazaUpit($veza, $upit);	
 					$poruka = "Novi podaci su uneseni pod ključem: $id";
 				}
 				
@@ -100,7 +100,7 @@
 						
 							$upit= "INSERT INTO zivotinje_na_lokaciji (zivotinja_id, lokacija_id, admin)
 							VALUES($id, $lokacija, 1)";
-							izvrsiUpit($veza, $upit);
+							bazaUpit($veza, $upit);
 							
 						}
 					}
@@ -112,7 +112,7 @@
 <?php		
 
 		$upit = "SELECT *FROM zivotinja WHERE zivotinja_id='$id'";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 		$prikazi=mysqli_fetch_array($rezultat)
 
 ?>

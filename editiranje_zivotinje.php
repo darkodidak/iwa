@@ -21,8 +21,8 @@
 <body>
 	<section>
 <?php
-			include_once("bazaa.php");
-			$veza = spojiSeNaBazu();
+			include_once("baza_konekcija.php");
+			$veza = bazaConnect();
 			$id_azuriranja_zivotinje = $_GET["id"];
 			$id = $_SESSION["id"];
 			
@@ -48,15 +48,15 @@
 						if(empty($greska)){
 							$poruka = "Kreirana je životinja! <br>";
 							$upit="UPDATE zivotinja SET korisnik_id='{$id}', datum_vrijeme_dodavanja = NOW(), naziv = '{$naziv}', opis='{$opis}', slika='{$slika}' WHERE zivotinja_id = '{$id_azuriranja_zivotinje}'";
-							$rezultat = izvrsiUpit($veza, $upit);
+							$rezultat = bazaUpit($veza, $upit);
 						}
 				}
 				
 			$upit = "SELECT *FROM zivotinja WHERE zivotinja_id = '{$id_azuriranja_zivotinje}'";
-			$rezultat = izvrsiUpit($veza, $upit);
+			$rezultat = bazaUpit($veza, $upit);
 			$rezultat_ispis = mysqli_fetch_assoc($rezultat);
 	
-			zatvoriVezuNaBazu($veza);
+			bazaDisconnect($veza);
 			
 			
 ?>

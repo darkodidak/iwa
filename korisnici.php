@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <?php 
@@ -8,9 +8,9 @@
 
 
 <?php
-		$veza = spojiSeNaBazu();
+		$veza = bazaConnect();
 		$upit = "SELECT *FROM korisnik";
-		$rezultat = izvrsiUpit($veza, $upit);
+		$rezultat = bazaUpit($veza, $upit);
 ?>
 			<table>
 					<?php 
@@ -38,7 +38,7 @@
 ?>
 
 <?php } 
-zatvoriVezuNaBazu($veza);
+bazaDisconnect($veza);
 ?>
 	
 

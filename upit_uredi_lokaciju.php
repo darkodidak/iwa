@@ -1,10 +1,10 @@
 <?php	
     session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 
     if(isset($_POST["azuriraj"])){
 
-        $veza = spojiSeNaBazu();
+        $veza = bazaConnect();
 
         $id_lokacije = $_POST["lokacija_id"];
         $id_moderatora = $_POST["moderator_id"];
@@ -15,11 +15,11 @@
             naziv='{$naziv}' 
         WHERE lokacija_id = '{$id_lokacije}'";
 
-        $rezultat = izvrsiUpit($veza, $upit);
+        $rezultat = bazaUpit($veza, $upit);
 
         if ($rezultat == true) {
             header("Location: lokacije.php");
         }
     }
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>

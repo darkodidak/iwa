@@ -1,13 +1,13 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 	include("header.php");
 ?>
 <?php
 $idurl=$_GET["id"];	
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$upit = "SELECT * FROM zivotinja WHERE zivotinja_id ='{$idurl}'";
-	$result1 = izvrsiUpit($veza, $upit);
+	$result1 = bazaUpit($veza, $upit);
 	$ispisi = mysqli_fetch_array($result1);	
 ?>
 <?php if(isset($ispisi)){ ?>	
@@ -18,14 +18,14 @@ $idurl=$_GET["id"];
 		<?php }  ?>		
 <?php
     $idurl=$_GET["id"];	
-	$veza = spojiSeNaBazu();
+	$veza = bazaConnect();
 	$upit = "SELECT * FROM `zivotinje_na_lokaciji` WHERE zivotinja_id='{$idurl}'";
-	$rezz = izvrsiUpit($veza, $upit);
+	$rezz = bazaUpit($veza, $upit);
 		echo "<h2>Lokacije divlje životinje: </h2>";
 		if(isset($rezz)){
 			while($prikazi = mysqli_fetch_array($rezz)){ 
 				$upit = "SELECT * FROM `lokacija` WHERE lokacija_id='{$prikazi["lokacija_id"]}'"; 
-				$result2 = izvrsiUpit($veza, $upit);
+				$result2 = bazaUpit($veza, $upit);
 				if(isset($result2)){ 
 					while($prikazi = mysqli_fetch_array($result2)){
 						echo"<tr><br>";   

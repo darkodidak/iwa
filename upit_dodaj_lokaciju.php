@@ -1,10 +1,10 @@
 <?php	
     session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 
     if(isset($_POST["azuriraj"])){
 
-        $veza = spojiSeNaBazu();
+        $veza = bazaConnect();
 
         $id_korisnika = $_SESSION["id"];
 
@@ -14,11 +14,11 @@
 
         $upit = "INSERT into lokacija (lokacija_id, moderator_id, naziv) values (".$id_lokacije.", ".$id_moderatora.", '".$naziv."')";
 
-        $rezultat = izvrsiUpit($veza, $upit);
+        $rezultat = bazaUpit($veza, $upit);
 
         if ($rezultat == true) {
             header("Location: lokacije.php");
         }
     }
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>
