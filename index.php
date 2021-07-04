@@ -8,41 +8,31 @@
 	$veza = spojiSeNaBazu();
 	$upit = "SELECT * FROM `zivotinja` ORDER BY `zivotinja`.`datum_vrijeme_dodavanja` DESC";
 	$slika = izvrsiUpit($veza, $upit);
-	$slika2 = $slika;
-		if(isset($slika)){
-			
-			$i = 0;
+	
+	if(isset($slika)){
+		
+		$i = 0;
 
-			while($zivotinja = mysqli_fetch_array($slika)) {
-				if ($i % 4 == 0) {
-					echo "<div class=row>";
-				}
-
-				echo "
-					<a href=info_zivotinja.php?id=".$zivotinja["zivotinja_id"].">
-						<img style=height:250px; src=".$zivotinja["slika"].">
-						<i>".$zivotinja["naziv"]."</i>
-					</a>
-				";
-
-				$i += 1;
-
-				if ($i % 4 == 0 && $i != 0) {
-					echo "</div><br><br>";
-				}
+		while($zivotinja = mysqli_fetch_array($slika)) {
+			if ($i % 4 == 0) {
+				echo "<div class=row>";
 			}
 
-			while($ispisi = mysqli_fetch_array($slika2)){ ?>
-			<br>
-				<a href='info_zivotinja.php?id=<?php echo $ispisi[0] ?>'>
-				<img src ="<?php echo $ispisi["slika"] ?>"width='200' height='255'>
-				</a> <?php 
-				echo "</td>";
-				echo "<td>{$ispisi["naziv"]}</td>";
-				echo "</tr>";?>
-			</table><?php
-}
-}	
+			echo "
+				<a href=info_zivotinja.php?id=".$zivotinja["zivotinja_id"].">
+					<img style=height:250px; src=".$zivotinja["slika"].">
+					<i>".$zivotinja["naziv"]."</i>
+				</a>
+			";
+
+			$i += 1;
+
+			if ($i % 4 == 0 && $i != 0) {
+				echo "</div><br><br>";
+			}
+		}
+	}
+	
 ?>
 <?php
 	include("footer.php");
