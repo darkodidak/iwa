@@ -16,6 +16,8 @@
 
 		$rezultat = izvrsiUpit($veza, $upit);
 
+		echo "<a href=dodavanje_lokacije.php>DODAJ LOKACIJU</a><br><br>";
+
 		while($lokacija = mysqli_fetch_array($rezultat)) {
 			echo "<table><tr>
 				<td>{$lokacija['lokacija_id']}</td>
