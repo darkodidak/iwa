@@ -17,6 +17,7 @@
 		$rezultat = izvrsiUpit($veza, $upit);
 
 		echo "<a href=dodavanje_lokacije.php>DODAJ LOKACIJU</a><br><br>";
+		echo "<a href=zivotinje_bez_lokacije.php>ZIVOTINJE BEZ LOKACIJE</a><br><br>";
 
 		while($lokacija = mysqli_fetch_array($rezultat)) {
 			echo "<table><tr>
@@ -30,4 +31,5 @@
 
 <?php
 	include("footer.php");
+	zatvoriVezuNaBazu($veza);
 ?>
