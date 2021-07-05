@@ -13,19 +13,34 @@
 
     $rezultat = bazaUpit($veza, $upit);
 
+    echo "<table>
+    <tr>
+        <td class=column1666>NAZIV</td>
+        <td class=column1666>ID</td>
+        <td class=column1666>KORISNIK ID</td>
+        <td class=column1666>LOKACIJA ID</td>
+        <td class=column1666>UREDI</td>
+        <td class=column1666>OBRISI</td>
+    </tr>
+    ";
+
     while($zivotinja = mysqli_fetch_array($rezultat)) {
-        echo "<table><tr>
-            <td>{$zivotinja['naziv']}</td>
-            <td>{$zivotinja['zivotinja_id']}</td>
-            <td>{$zivotinja['korisnik_id']}</td>
-            <td>{$zivotinja['lokacija_id']}</td>";
-            if ($zivotinja["admin"] == 0) {
-                echo "<td><a style=height:20px; width:20px; background-colro:red; 
-                href=\"upit_obrisi_zivotinju.php?lokacija_id=".$id_lokacije."&zivotinja_id=".$zivotinja["zivotinja_id"]."\">Obrisi</a></td>";
-            }
-        echo "<td><a href=\"uredi_zivotinju.php?&zivotinja_id=".$zivotinja["zivotinja_id"]."&lokacija_id=".$id_lokacije."\">Uredi</a></td>";
-        echo "</tr></table>";
+        echo "<tr>
+            <td class=column1666>{$zivotinja['naziv']}</td>
+            <td class=column1666>{$zivotinja['zivotinja_id']}</td>
+            <td class=column1666>{$zivotinja['korisnik_id']}</td>
+            <td class=column1666>{$zivotinja['lokacija_id']}</td>
+            <td class=column1666><a href=\"uredi_zivotinju.php?&zivotinja_id=".$zivotinja["zivotinja_id"]."&lokacija_id=".$id_lokacije."\">Uredi</a></td>";
+
+        if ($zivotinja["admin"] == 0) {
+            echo "<td class=column1666><a style=height:20px; width:20px; background-colro:red; 
+            href=\"upit_obrisi_zivotinju.php?lokacija_id=".$id_lokacije."&zivotinja_id=".$zivotinja["zivotinja_id"]."\">Obrisi</a></td>";
+        }
+
+        echo "</tr>";
     }
+
+    echo "</table>";
 ?>
 <?php
 	include("footer.php");

@@ -13,7 +13,15 @@ td {
 }
 
 .column1250 {
-	width: 12.50%;
+	width: 11.11%;
+}
+
+.column2500 {
+	width: 25.00%;
+}
+
+.column3333 {
+	width: 33.33%;
 }
 
 .column1666 {

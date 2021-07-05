@@ -17,16 +17,25 @@
 
 		$rezultat = bazaUpit($veza, $upit);
 
+        echo "<table>
+		<tr>
+			<td class=column3333>ID</td>
+			<td class=column3333>NAZIV</td>
+			<td class=column3333>DODAJ LOKACIJU</td>
+		</tr>
+		";
+
         while($zivotinja_bez_lokacije = mysqli_fetch_array($rezultat)) {
             
-            echo "<table>
-                    <tr>
-                        <td>".$zivotinja_bez_lokacije['zivotinja_id']."</td>
-                        <td>".$zivotinja_bez_lokacije['naziv']."</td>
-                        <td><a href=zivotinja_bez_lokacije_dodaj.php?id=".$zivotinja_bez_lokacije["zivotinja_id"].">Dodaj Lokaciju</a></td>
+            echo "  <tr>
+                        <td class=column3333>".$zivotinja_bez_lokacije['zivotinja_id']."</td>
+                        <td class=column3333>".$zivotinja_bez_lokacije['naziv']."</td>
+                        <td class=column3333><a href=zivotinja_bez_lokacije_dodaj.php?id=".$zivotinja_bez_lokacije["zivotinja_id"].">Dodaj Lokaciju</a></td>
 				    </tr>
-                </table>";
+                ";
         }
+
+        echo "</table>";
 ?>	
 
 <?php

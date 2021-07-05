@@ -26,6 +26,7 @@
 			<td class=column1250>PREZIME</td>
 			<td class=column1250>EMAIL</td>
 			<td class=column1250>SLIKA</td>
+			<td clasas=column1250>UREDI</td>
 		</tr>
 		";
 		
@@ -40,7 +41,7 @@
 				<td class=column1250>{$korisnik['prezime']}</td>
 				<td class=column1250>{$korisnik['email']}</td>
 				<td class=column1250>{$korisnik['slika']}</td>
-				<td><a href=\"uredi_korisnika.php?id=".$korisnik["korisnik_id"]."\">Uredi</a></td>
+				<td class=column1250><a href=\"uredi_korisnika.php?id=".$korisnik["korisnik_id"]."\">Uredi</a></td>
 				</tr></table>";
 		}
 

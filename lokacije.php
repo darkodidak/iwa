@@ -28,14 +28,25 @@
 			echo "<a href=zivotinje_bez_lokacije.php>ZIVOTINJE BEZ LOKACIJE</a><br><br>";
 		}
 
+		echo "<table>
+		<tr>
+			<td class=column2500>ID</td>
+			<td class=column2500>ID MODERATORA</td>
+			<td class=column2500>NAZIV</td>
+			<td class=column2500>UREDI</td>
+		</tr>
+		";
+
 		while($lokacija = mysqli_fetch_array($rezultat)) {
-			echo "<table><tr>
-				<td>{$lokacija['lokacija_id']}</td>
-				<td>{$lokacija['moderator_id']}</td>
-				<td><a href=\"zivotinje_na_lokaciji.php?id=".$lokacija["lokacija_id"]."\">{$lokacija['naziv']}</a></td>
-				<td><a href=\"uredi_lokaciju.php?lokacija_id=".$lokacija["lokacija_id"]."\">Uredi</a></td>
-				</tr></table>";
+			echo "<tr>
+				<td class=column2500>{$lokacija['lokacija_id']}</td>
+				<td class=column2500>{$lokacija['moderator_id']}</td>
+				<td class=column2500><a href=\"zivotinje_na_lokaciji.php?id=".$lokacija["lokacija_id"]."\">{$lokacija['naziv']}</a></td>
+				<td class=column2500><a href=\"uredi_lokaciju.php?lokacija_id=".$lokacija["lokacija_id"]."\">Uredi</a></td>
+				</tr>";
 		}
+
+		echo "</table>";
 ?>	
 
 <?php
