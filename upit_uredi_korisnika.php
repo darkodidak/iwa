@@ -1,20 +1,20 @@
 <?php	
     session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
 
     if(isset($_POST["azuriraj"])){
 
-        $veza = spojiSeNaBazu();
+        $veza = bazaConnect();
 
         $id_korisnika = $_SESSION["id"];
         $korisnik_id = $_POST["korisnik_id"];
-        $id_tip = (string)$_POST["tip_id"];
-        $ime_korisnika = (string)$_POST["korisnicko_ime"];
-        $sifra =(string) $_POST["lozinka"];
-        $ime = (string)$_POST["ime"];
-        $prezime = (string)$_POST["prezime"];
-		$email = (string)$_POST["email"];
-		$slika = (string)$_POST["slika"];
+        $id_tip = $_POST["tip_id"];
+        $ime_korisnika = $_POST["korisnicko_ime"];
+        $sifra = $_POST["lozinka"];
+        $ime = $_POST["ime"];
+        $prezime = $_POST["prezime"];
+		$email = $_POST["email"];
+		$slika = $_POST["slika"];
 
         $upit="UPDATE korisnik SET 
             tip_id='{$id_tip}', 
@@ -28,11 +28,11 @@
 
             WHERE korisnik_id = '{$korisnik_id}'";
         
-        $rezultat = izvrsiUpit($veza, $upit);
+        $rezultat = bazaUpit($veza, $upit);
 
         if ($rezultat == true) {
             header("Location: korisnici.php");
         }
     }
-	zatvoriVezuNaBazu($veza);
+	bazaDisconnect($veza);
 ?> 

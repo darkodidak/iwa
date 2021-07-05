@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	include("bazaa.php");
+	include("baza_konekcija.php");
     include("header.php");
 
-    $veza = spojiSeNaBazu();
+    $veza = bazaConnect();
 
     $id_korisnika = $_GET["id"];
     
@@ -11,7 +11,7 @@
 
     $upit = "SELECT * from korisnik where korisnik_id=".$id_korisnika;
 
-    $rezultat_korisnici = izvrsiUpit($veza, $upit);
+    $rezultat_korisnici = bazaUpit($veza, $upit);
 
     $rezultat_korisnici = mysqli_fetch_array($rezultat_korisnici);
 ?>
@@ -56,4 +56,4 @@
 <?php
     include("footer.php");
 ?>
-<?php zatvoriVezuNaBazu($veza); ?>
+<?php bazaDisconnect($veza); ?>
