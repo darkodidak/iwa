@@ -26,7 +26,7 @@
 		$rezultat_lokacija = bazaUpit($veza, $upit);
 		$rezultat_lokacija = mysqli_fetch_array($rezultat_lokacija);
 
-		echo "<a href=popis_lokacija.php?id=".$lokacija["lokacija_id"].">".$rezultat_lokacija["naziv"]."</a><br>";
+		echo "<a href=zivotinje_na_lokaciji.php?id=".$lokacija["lokacija_id"].">".$rezultat_lokacija["naziv"]."</a><br>";
 	}
 ?>
 <?php
