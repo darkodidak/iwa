@@ -16,19 +16,35 @@
 
 		$rezultat = bazaUpit($veza, $upit);
 
+		echo "<table>
+		<tr>
+			<td class=column1250>ID</td>
+			<td class=column1250>TIP</td>
+			<td class=column1250>KORISNICKO IME</td>
+			<td class=column1250>LOZINKA</td>
+			<td class=column1250>IME</td>
+			<td class=column1250>PREZIME</td>
+			<td class=column1250>EMAIL</td>
+			<td class=column1250>SLIKA</td>
+		</tr>
+		";
+		
+
 		while($korisnik = mysqli_fetch_array($rezultat)) {
 			echo "<table><tr>
-				<td>{$korisnik['korisnik_id']}</td>
-				<td>{$korisnik['tip_id']}</td>
-				<td>{$korisnik['korisnicko_ime']}</td>
-				<td>{$korisnik['lozinka']}</td>
-				<td>{$korisnik['ime']}</td>
-				<td>{$korisnik['prezime']}</td>
-				<td>{$korisnik['email']}</td>
-				<td>{$korisnik['slika']}</td>
+				<td class=column1250>{$korisnik['korisnik_id']}</td>
+				<td class=column1250>{$korisnik['tip_id']}</td>
+				<td class=column1250>{$korisnik['korisnicko_ime']}</td>
+				<td class=column1250>{$korisnik['lozinka']}</td>
+				<td class=column1250>{$korisnik['ime']}</td>
+				<td class=column1250>{$korisnik['prezime']}</td>
+				<td class=column1250>{$korisnik['email']}</td>
+				<td class=column1250>{$korisnik['slika']}</td>
 				<td><a href=\"uredi_korisnika.php?id=".$korisnik["korisnik_id"]."\">Uredi</a></td>
 				</tr></table>";
 		}
+
+		echo "</table>";
 ?>	
 
 <?php

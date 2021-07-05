@@ -1,7 +1,20 @@
 body, html {
 	background-color: white;
 	font-size: 25px;
-  }
+}
+
+td {
+	border: 1px solid black;
+	padding: 8px;
+}
+
+.column1666 {
+	width: 14.29%;
+}
+
+.column1250 {
+	width: 12.50%;
+}
 
 .column1666 {
 	width: 14.29%;
