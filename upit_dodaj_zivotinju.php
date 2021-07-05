@@ -27,7 +27,7 @@
             $rezultat = bazaUpit($veza, $upit);
 
             if ($rezultat == true) {
-                header("Location: http://localhost/ddidak/dodavanje_zivotinje.php.");
+                header("Location: dodavanje_zivotinje.php");
             }
         }
     }
