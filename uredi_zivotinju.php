@@ -32,7 +32,7 @@
     <input hidden name="id_lokacije" style=width:100%; type='text' value="<?php echo $id_lokacije ?>">
 
     <a>
-	    <input class="pok" name="azuriraj" type="submit" value="Da"><br>
+	    <input name="azuriraj" type="submit" value="Da"><br>
 	</a>
 </form>
 

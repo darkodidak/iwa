@@ -48,7 +48,7 @@ if (isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0 || $_SESSION["tip"] == 1))
 			?>
 		</select>
         <a>
-            <input class="pok" name="azuriraj" type="submit" value="Da">
+            <input name="azuriraj" type="submit" value="Da">
         </a>
     </form>
 

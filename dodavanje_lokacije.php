@@ -36,7 +36,7 @@ if(isset($_SESSION["tip"]) && ($_SESSION["tip"] == 0)) { ?>
         <input name="naziv" style=width:100%; type='text' value="">
 
         <a>
-            <input class="pok" name="azuriraj" type="submit" value="Da">
+            <input name="azuriraj" type="submit" value="Da">
         </a>
     </form>
     <?php

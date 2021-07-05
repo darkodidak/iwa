@@ -25,7 +25,7 @@
         ?>
     </select>
     <a>
-	    <input class="pok" name="azuriraj" type="submit" value="Dodaj Lokaciju">
+	    <input name="azuriraj" type="submit" value="Dodaj Lokaciju">
 	</a>
 </form>
 

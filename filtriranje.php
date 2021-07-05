@@ -28,7 +28,7 @@ if(isset($_SESSION["tip"]) && (($_SESSION["tip"] == 0) || ($_SESSION["tip"] == 1
 		<label for="vrijeme">Datum do:</label>
 		<input name="vrijeme" type="text" value="" placeholder="dd.mm.gggg hh:mm:ss" />
 		<br>
-		<input class="pok" name="submit" type="submit" value="Filtriraj" href="rezultat.php"><br>
+		<input name="submit" type="submit" value="Filtriraj" href="rezultat.php"><br>
 	</form>
 	</section>
 

@@ -89,7 +89,7 @@
 				<input name="email" type="email" />
 				<br>
 				
-				<input class="pok" name="submit" type="submit" value="Unesi"><br>
+				<input name="submit" type="submit" value="Unesi"><br>
 	
 				
 			</form> 

@@ -49,7 +49,7 @@
     <input name="slika" style=width:100%; type='text' value="<?php echo $rezultat_korisnici["slika"] ?>">
 
     <a>
-	    <input class="pok" name="azuriraj" type="submit" value="Da">
+	    <input name="azuriraj" type="submit" value="Da">
 	</a>
 </form>
 
